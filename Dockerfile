@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM python:3.10-alpine3.16
 
 RUN apk add --update --no-cache --virtual .build-deps \
         build-base \
@@ -13,6 +13,5 @@ WORKDIR /
 
 ENV INTERVAL=30
 ENV INFLUX_ADDR=http://influxdb:8086
-ENV INFLUX_DB=psutil
 
 ENTRYPOINT ["python", "-u", "/entrypoint.py"]
